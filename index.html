@@ -47,8 +47,8 @@ a:hover { text-decoration: underline; }
 .layout {
   display: grid;
   grid-template-columns: var(--sidebar-w) 1fr;
-/* number of values = number of columns*/
-  min-height: 100vh;/*1 pc of  the viewport height*/
+/* number of values corresponds to number of columns*/
+  min-height: 100vh;/* vh = 1 pc of  the viewport height*/
 }
 
 .sidebar {
@@ -56,6 +56,7 @@ a:hover { text-decoration: underline; }
   top: 0;
   height: 100vh; 
   /*not min-height, we want sidebar content to overflow*/
+  overflow-y: auto;
   padding: 3rem 2rem; /*vertical and horizontal*/
   background: var(--bg-raised);
   border-right: 1px solid var(--border);
@@ -134,6 +135,60 @@ a:hover { text-decoration: underline; }
   border-radius: 50%;
   border: 1px solid var(--border);
   margin-bottom: 1.5rem;
+}
+/*controls for narrow screen*/
+@media (max-width: 768px) {
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .portrait {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 0;
+  }
+
+  .sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .role {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+  }
+
+  .tagline,
+  .sidebar nav {
+    flex-basis: 100%;
+    margin-bottom: 0;
+  }
+
+  .sidebar nav {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .sidebar nav a {
+    padding: 0;
+  }
+
+  .main {
+    padding: 2.5rem 1.5rem;
+  }
 }
 </style>
 </head>
