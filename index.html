@@ -55,6 +55,8 @@ a:hover { text-decoration: underline; }
   position: sticky;
   top: 0;
   height: 100vh; 
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
   /*not min-height, we want sidebar content to overflow*/
   overflow-y: auto;
   padding: 3rem 2rem; /*vertical and horizontal*/
@@ -150,6 +152,7 @@ a:hover { text-decoration: underline; }
     padding: 2rem 1.5rem;
     display: flex;
     flex-wrap: wrap;
+    overflow: visible;
     align-items: center;
     gap: 0.5rem 1.25rem;
   }
@@ -190,6 +193,48 @@ a:hover { text-decoration: underline; }
     padding: 2.5rem 1.5rem;
   }
 }
+
+.section-intro {
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.entry {
+  margin-bottom: 2.5rem;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.entry-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.entry-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.entry-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
 </style>
 </head>
 <body>
@@ -221,6 +266,47 @@ a:hover { text-decoration: underline; }
         designing and running the CFD experiments that generate the data these methods
         need.
       </p>
+    </section>
+
+    <section class="section" id="research">
+      <h2 class="section-heading">Research</h2>
+
+      <p class="section-intro">I work on unsteady flows at low Reynolds number,
+      approaching them as dynamical systems and using CFD experiments I design and
+      run myself as the data source. The two threads below are connected: the second
+      grew directly out of a computational bottleneck in the first.</p>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Modeling and Control of Flows Over Rapidly Maneuvering Airfoils</h3>
+          <span class="entry-date">2025 &ndash; present</span>
+        </div>
+        <p class="entry-meta">Undergraduate thesis &middot; Supervisor: Dr. Mohammad Ali, Department of Mechanical Engineering, BUET</p>
+        <p>I am developing reduced-order models of the aerodynamic forces on an
+        airfoil under active actuation, taking leading-edge blowing as the control
+        input. The training data comes from controlled OpenFOAM experiments run on
+        my own machine. The Reynolds number is kept low deliberately: it keeps the
+        simulations fully resolved without any turbulence modeling, so the data
+        reflects the governing equations rather than a closure assumption.</p>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Statistical Modeling of Lagrangian Coherent Structures</h3>
+          <span class="entry-date">2026 &ndash; present</span>
+        </div>
+        <p class="entry-meta">Independent, arising from the thesis work</p>
+        <p>
+          Computing Lagrangian Coherent Structures is expensive. An ensemble of
+          particles has to be integrated through time to get the flow map, with Jacobians 
+          and their singular values evaluated at every step, and most of those trajectories turn
+          out to carry no information about where the attracting sets are. I am
+          investigating whether the first few integration steps are enough to get a probabilistic 
+          estimate about where those sets will form, so that dense sampling can be concentrated 
+          there instead of spread uniformly.
+        </p>
+      </article>
+
     </section>
   </main>
 
