@@ -1,1 +1,122 @@
-<h1>Imdadullah Raji</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- controls the viewport across devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imdadullah Raji</title>
+<style>
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Spectral:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap');
+
+:root {
+    /* These are declarations, globally scoped */
+  --bg:          #f4f1ea;
+  --bg-raised:   #ece8de;
+  --border:      #d6d0c3;
+  --text:        #1c1a17;
+  --text-muted:  #57534a;
+  --accent:      #2c6e5a;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Spectral', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  --sidebar-w:    300px;
+}
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 3rem 2rem;
+  background: var(--bg-raised);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar h1 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.role {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.tagline {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+}
+
+.sidebar nav a {
+  display: block;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+  color: var(--text-muted);
+}
+.sidebar nav a:hover { color: var(--accent); }
+
+.main {
+  padding: 4rem 3.5rem;
+  max-width: 780px;
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h1>Imdadullah Raji</h1>
+    <p class="role">Final-year BSc, Mechanical Engineering<br>BUET, Dhaka</p>
+    <p class="tagline">Dynamical systems · Flow control · Data-driven modeling</p>
+    <nav>
+      <a href="mailto:2110099@buet.me.ac.bd">Email</a>
+      <a href="https://github.com/Imdadullah-Raji">GitHub</a>
+      <a href="https://www.linkedin.com/in/imdadullah-raji/">LinkedIn</a>
+      <a href="cv.pdf">CV (PDF)</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <p>Placeholder — content goes here next.</p>
+  </main>
+
+</div>
+
+</body>
+</html>
