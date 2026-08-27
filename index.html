@@ -43,17 +43,20 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* has to do with grid layout somehow */
 .layout {
   display: grid;
   grid-template-columns: var(--sidebar-w) 1fr;
-  min-height: 100vh;
+/* number of values = number of columns*/
+  min-height: 100vh;/*1 pc of  the viewport height*/
 }
 
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100vh;
-  padding: 3rem 2rem;
+  height: 100vh; 
+  /*not min-height, we want sidebar content to overflow*/
+  padding: 3rem 2rem; /*vertical and horizontal*/
   background: var(--bg-raised);
   border-right: 1px solid var(--border);
 }
@@ -94,6 +97,44 @@ a:hover { text-decoration: underline; }
   padding: 4rem 3.5rem;
   max-width: 780px;
 }
+.section {
+  margin-bottom: 4rem;
+}
+
+.section p + p {
+  margin-top: 1rem;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.section-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  /*bottom: 0.3em;*/
+  height: 1em;
+  width: 3px;
+  background: var(--accent);
+}
+
+.portrait {
+  display: block;
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
 </style>
 </head>
 <body>
@@ -101,6 +142,7 @@ a:hover { text-decoration: underline; }
 <div class="layout">
 
   <aside class="sidebar">
+    <img class="portrait" src="portrait.jpg" alt="Imdadullah Raji">
     <h1>Imdadullah Raji</h1>
     <p class="role">Final-year BSc, Mechanical Engineering<br>BUET, Dhaka</p>
     <p class="tagline">Dynamical systems · Flow control · Data-driven modeling</p>
@@ -113,8 +155,20 @@ a:hover { text-decoration: underline; }
   </aside>
 
   <main class="main">
-    <p>Placeholder — content goes here next.</p>
+    <section class="section" id="about">
+      <h2 class="section-heading">About</h2>
+      <p>
+        I am interested in finding patterns in complex fluid flows: identifying the
+        dominant physics so that it can be controlled. I look at flows through the
+        framework of dynamical systems, in terms of attractors, bifurcations and
+        stability. To extract those patterns and build control strategies from them, I
+        use modern machine learning tools. Most of my time right now goes into
+        designing and running the CFD experiments that generate the data these methods
+        need.
+      </p>
+    </section>
   </main>
+
 
 </div>
 
