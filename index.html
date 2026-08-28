@@ -192,6 +192,10 @@ a:hover { text-decoration: underline; }
   .main {
     padding: 2.5rem 1.5rem;
   }
+  .entry { padding: 1.25rem; }
+  .entry-media { margin: -1.25rem -1.25rem 1rem; }
+  .entry-media figcaption { padding: 0.5rem 1.25rem 0; }
+
 }
 
 .section-intro {
@@ -200,11 +204,59 @@ a:hover { text-decoration: underline; }
 }
 
 .entry {
-  margin-bottom: 2.5rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 3px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.entry:last-child {
-  margin-bottom: 0;
+.entry-alt {
+  --accent: #8a5a2b;
+  background: #efe9dc;
+}
+
+.entry:last-child { margin-bottom: 0; }
+
+.entry-media {
+  margin: -1.5rem -1.5rem 1.25rem;
+}
+
+.entry-media video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.entry-media figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  padding: 0.5rem 1.5rem 0;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tags li {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 2px;
+  padding: 0.2rem 0.5rem;
 }
 
 .entry-head {
@@ -234,6 +286,27 @@ a:hover { text-decoration: underline; }
   font-size: 0.9rem;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.entry-links a {
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.18s ease;
+}
+
+.entry-links a:hover {
+  text-decoration: none;
+  border-bottom-color: var(--accent);
 }
 </style>
 </head>
@@ -277,35 +350,72 @@ a:hover { text-decoration: underline; }
       grew directly out of a computational bottleneck in the first.</p>
 
       <article class="entry">
-        <div class="entry-head">
-          <h3 class="entry-title">Modeling and Control of Flows Over Rapidly Maneuvering Airfoils</h3>
-          <span class="entry-date">2025 &ndash; present</span>
-        </div>
-        <p class="entry-meta">Undergraduate thesis &middot; Supervisor: Dr. Mohammad Ali, Department of Mechanical Engineering, BUET</p>
-        <p>I am developing reduced-order models of the aerodynamic forces on an
-        airfoil under active actuation, taking leading-edge blowing as the control
-        input. The training data comes from controlled OpenFOAM experiments run on
-        my own machine. The Reynolds number is kept low deliberately: it keeps the
-        simulations fully resolved without any turbulence modeling, so the data
-        reflects the governing equations rather than a closure assumption.</p>
-      </article>
+      <figure class="entry-media">
+        <video autoplay loop muted playsinline poster="media/airfoil_poster.jpg">
+          <source src="media/airfoil_vorticity.mp4" type="video/mp4">
+          <source src="media/airfoil_vorticity.webm" type="video/webm">
+        </video>
+        <figcaption>Vorticity field around the airfoil under leading-edge blowing.</figcaption>
+      </figure>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3 class="entry-title">Statistical Modeling of Lagrangian Coherent Structures</h3>
-          <span class="entry-date">2026 &ndash; present</span>
-        </div>
-        <p class="entry-meta">Independent, arising from the thesis work</p>
-        <p>
-          Computing Lagrangian Coherent Structures is expensive. An ensemble of
-          particles has to be integrated through time to get the flow map, with Jacobians 
-          and their singular values evaluated at every step, and most of those trajectories turn
-          out to carry no information about where the attracting sets are. I am
-          investigating whether the first few integration steps are enough to get a probabilistic 
-          estimate about where those sets will form, so that dense sampling can be concentrated 
-          there instead of spread uniformly.
-        </p>
-      </article>
+      <div class="entry-head">
+        <h3 class="entry-title">Modeling and Control of Flows Over Rapidly Maneuvering Airfoils</h3>
+        <span class="entry-date">2025 &ndash; present</span>
+      </div>
+      <p class="entry-meta">Undergraduate thesis &middot; Supervisor: Dr. Mohammad Ali, Department of Mechanical Engineering, BUET</p>
+      <p>I am developing reduced-order models of the aerodynamic forces on an
+      airfoil under active actuation, taking leading-edge blowing as the control
+      input. The training data comes from controlled OpenFOAM experiments run on my
+      own machine. The Reynolds number is kept low deliberately: it keeps the
+      simulations fully resolved without any turbulence modeling, so the data
+      reflects the governing equations rather than a closure assumption.
+      </p>
+      <p class="entry-links">
+        <a href="https://github.com/Imdadullah-Raji/openfoam_cases">Case Files & Codes &rarr;</a>
+      </p> <!--code pointing to the case repository containing the simulations"-->
+
+      <ul class="tags">
+        <li>OpenFOAM</li>
+        <li>Reduced-order modeling</li>
+        <li>Active flow control</li>
+        <li>Unsteady aerodynamics</li>
+      </ul>
+    </article>
+
+  <article class="entry entry-alt">
+    <figure class="entry-media">
+      <video autoplay loop muted playsinline poster="media/ftle_poster.jpg">
+        <source src="media/ftle_forward.mp4" type="video/mp4">
+        <source src="media/ftle_forward.webm" type="video/webm">
+      </video>
+      <figcaption>Forward-time FTLE field; ridges mark the attracting structures.</figcaption>
+    </figure>
+
+    <div class="entry-head">
+      <h3 class="entry-title">Statistical Modeling of Lagrangian Coherent Structures</h3>
+      <span class="entry-date">2026 &ndash; present</span>
+    </div>
+    <p class="entry-meta">Independent, arising from the thesis work</p>
+    <p>
+      Computing Lagrangian Coherent Structures is expensive. An ensemble of
+      particles has to be integrated through time, with Jacobians and their singular
+      values evaluated at every step, and most of those trajectories turn out to
+      carry no information about where the attracting sets are. I am investigating
+      whether the first few integration steps are enough to predict where those sets
+      will form, so that dense sampling can be concentrated there instead of spread
+      uniformly.
+    </p>
+    <p class="entry-links">
+      <a href="https://github.com/Imdadullah-Raji/LCS_numerics">Code &rarr;</a>
+    </p>
+
+    <ul class="tags">
+      <li>FTLE</li>
+      <li>Coherent structures</li>
+      <li>Python</li>
+      <li>Statistical modeling</li>
+    </ul>
+  </article>
 
     </section>
   </main>
