@@ -165,7 +165,7 @@ a:hover { text-decoration: underline; }
   margin: -1.5rem -1.5rem 1.25rem;
 }
 
-.entry-media video {
+.entry-media video{
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -173,6 +173,17 @@ a:hover { text-decoration: underline; }
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
+
+
+.entry-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
 
 .entry-media figcaption {
   font-family: var(--font-mono);
@@ -353,10 +364,8 @@ a:hover { text-decoration: underline; }
 
       <article class="entry">
       <figure class="entry-media">
-        <video autoplay loop muted playsinline poster="media/airfoil_poster.jpg">
-          <source src="media/swirling_strength.mp4" type="video/mp4">
-        </video>
-        <figcaption>&lambda;<sub>ci</sub> plot of a pitching airfoil: showing formation of leading-edge vortex.</figcaption>
+        <img src="media/seperation_bubble.png" alt="seperation bubbles"/>
+        <figcaption>Laminar seperation bubbles forming near the TE. Simulation:OpenFOAM, Visualization: Paraview.</figcaption>
       </figure>
 
       <div class="entry-head">
