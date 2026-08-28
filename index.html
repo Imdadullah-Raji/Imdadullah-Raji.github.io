@@ -293,6 +293,32 @@ a:hover { text-decoration: underline; }
   margin-top: 0.35rem;
 }
 
+.photo-strip {
+  margin-top: 1.5rem;
+}
+
+.photo-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.photo-row img {
+  flex: 1;
+  min-width: 0;
+  height: 160px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.photo-strip figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
 .nav-inline {
   display: flex;
   gap: 1.5rem;
@@ -359,6 +385,8 @@ a:hover { text-decoration: underline; }
     padding: 0;
   }
 
+  .photo-row img { height: 110px; }
+
   .main {
     padding: 2.5rem 1.5rem;
   }
@@ -374,7 +402,7 @@ a:hover { text-decoration: underline; }
 <div class="layout">
 
   <aside class="sidebar">
-    <img class="portrait" src="portrait.jpg" alt="Imdadullah Raji">
+    <img class="portrait" src="portrait1.jpg" alt="Imdadullah Raji">
     <h1>Imdadullah Raji</h1>
     <p class="role">Final-year BSc, Mechanical Engineering<br>BUET, Dhaka</p>
     <p class="tagline">Dynamical systems · Flow control · Data-driven modeling</p>
@@ -391,6 +419,7 @@ a:hover { text-decoration: underline; }
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#code">Code and Data</a>
+      <a href="#outreach">Outreach</a>
     </nav>
     <section class="section" id="about">
       <h2 class="section-heading">About</h2>
@@ -427,9 +456,10 @@ a:hover { text-decoration: underline; }
       <p>I am developing reduced-order models of the aerodynamic forces on an
       airfoil under active actuation, taking leading-edge blowing as the control
       input. The training data comes from controlled OpenFOAM experiments run on my
-      own machine. The Reynolds number is kept low deliberately: it keeps the
+      own machine. The Reynolds number is kept low deliberately for two reasons. First, it keeps the
       simulations fully resolved without any turbulence modeling, so the data
-      reflects the governing equations rather than a closure assumption.
+      reflects the governing equations rather than a closure assumption; and the second follows from the first
+      and the fact that my PC cannot do turbulent DNS. 
       </p>
       <p class="entry-links">
         <a href="https://github.com/Imdadullah-Raji/openfoam_cases">Case Files &amp; Codes &rarr;</a>
@@ -449,7 +479,7 @@ a:hover { text-decoration: underline; }
         <source src="media/ftle_forward.mp4" type="video/mp4">
         <source src="media/ftle_forward.webm" type="video/webm">
       </video>
-      <figcaption>Forward-time FTLE field; ridges mark the attracting structures.</figcaption>
+      <figcaption>Attracting structures computed by advecting particles backward in time. 5 time units, 51 snapshots, each snapshot integrated 102,000 particles for 1.1 time units.</figcaption>
     </figure>
 
     <div class="entry-head">
@@ -514,6 +544,32 @@ a:hover { text-decoration: underline; }
 
     </ul>
   </section>
+
+  <section class="section" id="outreach">
+  <h2 class="section-heading">Teaching and Outreach</h2>
+  <div class="entry-head" style="margin-top: 1.5rem;">
+    <h3 class="entry-title">Bangladesh Olympiad on Astronomy and Astrophysics</h3>
+    <span class="entry-date">2021 &ndash; present</span>
+  </div>
+  <p class="entry-meta">Academic Member; Academic Coordinator since 2026</p>
+  <p>I came into the <a href="https://bdoaa.org">Bangladesh Olympiad on Astronomy
+  and Astrophysics</a> as a participant, and represented Bangladesh at the IOAA in
+  2021, held remotely that year, where I received an Honorable Mention. I have
+  stayed with the program since: setting problems for the regional and national
+  rounds and for the team selection tests, and running training sessions for the
+  national team. As Academic Coordinator I decide what gets taught and organize
+  the national camp.</p>
+
+  <figure class="photo-strip">
+    <div class="photo-row">
+      <img src="media/bdoaa_team_2021.jpg" alt="Bangladesh team at IOAA 2021">
+      <img src="media/bdoaa_scripts.jpg" alt="Script checking during the national camp">
+    </div>
+    <figcaption>Left: IOAA 2021. Right: checking scripts with the academic team, 2026.</figcaption>
+  </figure>
+
+  
+</section>
 
   </main>
 
