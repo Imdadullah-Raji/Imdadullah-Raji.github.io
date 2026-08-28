@@ -293,6 +293,21 @@ a:hover { text-decoration: underline; }
   margin-top: 0.35rem;
 }
 
+.nav-inline {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.nav-inline a { color: var(--text-muted); }
+.nav-inline a:hover { color: var(--accent); text-decoration: none; }
+
 /*controls for narrow screen*/
 @media (max-width: 768px) {
   .layout {
@@ -372,6 +387,11 @@ a:hover { text-decoration: underline; }
   </aside>
 
   <main class="main">
+    <nav class="nav-inline" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#code">Code and Data</a>
+    </nav>
     <section class="section" id="about">
       <h2 class="section-heading">About</h2>
       <p>
