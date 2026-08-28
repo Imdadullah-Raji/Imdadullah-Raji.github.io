@@ -8,7 +8,7 @@
 <style>
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Spectral:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap');
-
+html { scroll-behavior: smooth; }
 :root {
     /* These are declarations, globally scoped */
   --bg:          #f4f1ea;
@@ -262,6 +262,37 @@ a:hover { text-decoration: underline; }
   border-bottom-color: var(--accent);
 }
 
+.repo-list {
+  list-style: none;
+}
+
+.repo {
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.repo:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.repo-name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--accent);
+}
+
+.repo-name:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.repo-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
 /*controls for narrow screen*/
 @media (max-width: 768px) {
   .layout {
@@ -428,6 +459,42 @@ a:hover { text-decoration: underline; }
   </article>
 
     </section>
+
+    <section class="section" id="code">
+    <h2 class="section-heading">Code and Data</h2>
+
+    <p class="section-intro">Two public repositories related to my current thesis work. 
+      The first one is a collection of OpenFOAM case files building towards jet actuation 
+      experiments on unsteady flow over airfoils. The second repository is a post-processing 
+      library that grew out of the rough code snippets I wrote for getting CFD data into suitable formats 
+      (e.g. NetCDF or hdf5),cropping, interpolation of data over cartesian grid and loading snapshots. 
+    </p>
+
+    <ul class="repo-list">
+
+    <li class="repo">
+        <a class="repo-name" href="https://github.com/Imdadullah-Raji/openfoam_cases">openfoam_cases</a>
+        <p class="repo-desc">The OpenFOAM cases behind the thesis experiments. Each
+        one is self-contained, documents the modeling assumptions it rests on, and
+        ships the geometry and meshing scripts needed to reproduce it.</p>
+    </li>
+
+    <li class="repo">
+      <a class="repo-name" href="https://github.com/Imdadullah-Raji/flowkit">flowkit</a>
+      <p class="repo-desc">A Python library for post-processing OpenFOAM output:
+        loading snapshots, interpolating onto Cartesian grids, cropping, and
+        Lagrangian analysis including trajectory integration. It started as tooling
+        I needed for the coherent-structure work and became general enough to keep
+        separate.
+      </p>
+    </li>
+
+      
+
+
+    </ul>
+  </section>
+
   </main>
 
 
