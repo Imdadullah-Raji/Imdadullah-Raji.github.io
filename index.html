@@ -493,10 +493,8 @@ a:hover { text-decoration: underline; }
       <p>I am developing reduced-order models of the aerodynamic forces on an
       airfoil under active actuation, taking leading-edge blowing as the control
       input. The training data comes from controlled OpenFOAM experiments run on my
-      own machine. The Reynolds number is kept low deliberately for two reasons. First, it keeps the
-      simulations fully resolved without any turbulence modeling, so the data
-      reflects the governing equations rather than a closure assumption; and the second follows from the first
-      and the fact that my PC cannot do turbulent DNS. 
+      own machine. The Reynolds number is kept low deliberately: the simulations stay fully resolved without turbulence modeling, so the data reflect the governing equations rather than a closure assumption. 
+      It is also what my hardware can actually resolve. 
       </p>
       <p class="entry-links">
         <a href="https://github.com/Imdadullah-Raji/openfoam_cases">Case Files &amp; Codes &rarr;</a>
@@ -553,7 +551,7 @@ a:hover { text-decoration: underline; }
       The first one is a collection of OpenFOAM case files building towards jet actuation 
       experiments on unsteady flow over airfoils. The second repository is a developing set of post-processing 
       routines that grew out of the rough code snippets I wrote for getting CFD data into suitable formats 
-      (e.g. NetCDF or hdf5),cropping, interpolation of data onto a cartesian grid and loading snapshots. 
+      (e.g. NetCDF or HDF5),cropping, interpolation of data onto a cartesian grid and loading snapshots. 
     </p>
 
     <ul class="repo-list">
@@ -631,7 +629,7 @@ a:hover { text-decoration: underline; }
 
 </div>
 <footer class="footer">
-  Last updated August 2026 &middot;
+  Last updated September 2026 &middot;
   <a href="https://github.com/Imdadullah-Raji/imdadullah-raji.github.io">Source</a>
 </footer>
 </body>
